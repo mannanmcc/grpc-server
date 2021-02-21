@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+
+package rate;
+
+message Rate {
+  string source = 1;
+  string destination = 2;
+}
+
+message Response {
+    string rate = 1;
+}
+
+service RateService {
+  rpc GetRate(Rate) returns (Response) {}
+}
