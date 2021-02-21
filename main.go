@@ -4,7 +4,7 @@ import (
 	"log"
 	"net"
 
-	"github.com/mannanmcc/grpc-server/rate"
+	"github.com/mannamcc/grpc-server/rate"
 	"google.golang.org/grpc"
 )
 
@@ -18,13 +18,11 @@ func main() {
 	// create a server instance
 	s := rate.Server{}
 
-	grpcServer := grpc.NewServer()
-
 	// create a gRPC server object
 	grpcServer := grpc.NewServer()
 
 	// attach the Ping service to the server
-	api.RegisterPingServer(grpcServer, &s)
+	rate.RegisterRateServiceServer(grpcServer, &s)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %s", err)

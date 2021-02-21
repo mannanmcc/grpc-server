@@ -12,6 +12,6 @@ type Server struct {
 
 // SayHello generates response to a Ping request
 func (s *Server) GetRate(ctx context.Context, in *Rate) (*Response, error) {
-	log.Printf("Receive message %s", in.source)
+	log.Printf("Receive message %s", in.Source)
 	return &Response{Rate: "bar"}, nil
 }
